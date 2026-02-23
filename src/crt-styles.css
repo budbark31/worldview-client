@@ -1,0 +1,227 @@
+/* CRT Monitor Aesthetic Overlay
+ * Phase 4: Global Intelligence Dashboard
+ * A retro classified military terminal effect
+ */
+
+/* ============================================
+   CRT OVERLAY CONTAINER
+   ============================================ */
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* ============================================
+   SCANLINE EFFECT
+   Horizontal lines that simulate CRT phosphor rows
+   ============================================ */
+.crt-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================
+   SCREEN FLICKER ANIMATION
+   Subtle opacity shifts to simulate CRT refresh
+   ============================================ */
+.crt-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 16, 16, 0.1);
+  animation: crt-flicker 0.15s infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes crt-flicker {
+  0% { opacity: 0.27861; }
+  5% { opacity: 0.34769; }
+  10% { opacity: 0.23604; }
+  15% { opacity: 0.90626; }
+  20% { opacity: 0.18128; }
+  25% { opacity: 0.83891; }
+  30% { opacity: 0.65583; }
+  35% { opacity: 0.67807; }
+  40% { opacity: 0.26559; }
+  45% { opacity: 0.84693; }
+  50% { opacity: 0.96019; }
+  55% { opacity: 0.08594; }
+  60% { opacity: 0.20313; }
+  65% { opacity: 0.71988; }
+  70% { opacity: 0.53455; }
+  75% { opacity: 0.37288; }
+  80% { opacity: 0.71428; }
+  85% { opacity: 0.70419; }
+  90% { opacity: 0.78940; }
+  95% { opacity: 0.25003; }
+  100% { opacity: 0.37569; }
+}
+
+/* ============================================
+   VIGNETTE EFFECT
+   Darkened edges for that curved CRT look
+   ============================================ */
+.crt-vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.4) 90%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+/* ============================================
+   PHOSPHOR GLOW TEXT EFFECTS
+   Green terminal text with authentic glow
+   ============================================ */
+.crt-text {
+  color: #00ff41;
+  text-shadow: 
+    0 0 5px #00ff41,
+    0 0 10px #00ff41,
+    0 0 20px #00ff41,
+    0 0 40px #00ff41;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+}
+
+/* Amber variant for warnings/alerts */
+.crt-text-amber {
+  color: #ffb000;
+  text-shadow: 
+    0 0 5px #ffb000,
+    0 0 10px #ffb000,
+    0 0 20px #ffb000,
+    0 0 40px #ffb000;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+}
+
+/* Red variant for critical alerts */
+.crt-text-red {
+  color: #ff0040;
+  text-shadow: 
+    0 0 5px #ff0040,
+    0 0 10px #ff0040,
+    0 0 20px #ff0040,
+    0 0 40px #ff0040;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+}
+
+/* Cyan variant for data/info */
+.crt-text-cyan {
+  color: #00ffff;
+  text-shadow: 
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 20px #00ffff;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+}
+
+/* ============================================
+   GLOBAL DARK THEME OVERRIDES
+   High contrast military terminal aesthetic
+   ============================================ */
+.crt-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0a0a0a;
+  overflow: hidden;
+}
+
+/* RGB color separation effect for extra authenticity */
+.crt-rgb-shift {
+  animation: rgb-shift 4s infinite;
+}
+
+@keyframes rgb-shift {
+  0%, 100% {
+    text-shadow: 
+      -1px 0 #ff0000,
+      1px 0 #00ffff;
+  }
+  50% {
+    text-shadow: 
+      -2px 0 #ff0000,
+      2px 0 #00ffff;
+  }
+}
+
+/* Subtle horizontal jitter for glitch effect */
+.crt-glitch {
+  animation: crt-jitter 10s infinite;
+}
+
+@keyframes crt-jitter {
+  0%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-1px); }
+  20% { transform: translateX(1px); }
+  30% { transform: translateX(0); }
+  40% { transform: translateX(1px); }
+  50% { transform: translateX(-1px); }
+  60% { transform: translateX(0); }
+  70% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+  90% { transform: translateX(0); }
+}
+
+/* Interlace lines - more aggressive scanlines */
+.crt-interlace {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 1px,
+    rgba(0, 255, 65, 0.03) 1px,
+    rgba(0, 255, 65, 0.03) 2px
+  );
+}
+
+/* Screen curvature simulation */
+.crt-screen-curve {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9996;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
