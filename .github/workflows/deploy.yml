@@ -30,8 +30,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Build with Vite
+        run: |
+          npm run build
+          mv dist/worldview-client/cesium dist/
         env:
           VITE_CESIUM_TOKEN: ${{ secrets.VITE_CESIUM_TOKEN }}
           VITE_OPENWEATHER_KEY: ${{ secrets.VITE_OPENWEATHER_KEY }}
